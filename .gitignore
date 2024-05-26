@@ -6,4 +6,4 @@
 *.symvers
 *.cmd
 *.o.*
-.vscode/
+.vscode/*
