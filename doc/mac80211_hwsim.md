@@ -78,13 +78,13 @@
 
     ```bash
     sudo ifconfig wlan0 up
-    sudo hostapd -B -f hostapd.log -i wlan0 hostapd.conf
+    sudo hostapd -i wlan0 hostapd.conf # -B running in background -f hostapd.log
     ```
 
 - 7. Switch to `second terminal` and run `wpa_supplicant` as STA role:
 
     ```bash
-    wpa_supplicant -B -c wpa_supplicant.conf -f wpa_supplicant.log -i wlan1
+    sudo wpa_supplicant -c wpa_supplicant.conf -i wlan1 # -B running in background -f wpa_supplicant.log
     ```
 
   - After the connection succeed, config IP for our STA:
@@ -97,6 +97,6 @@
 - 8. (OPTIONAL) You can check both logs to see if any problems occur. Also, you can use `tcpdump` to capture all frames via `hwsim0`:
 
     ```bash
-    ifconfig hwsim0 up
-    tcpdump -i hwsim0 -v
+    sudo ifconfig hwsim0 up
+    sudo tcpdump -i hwsim0 -v
     ```

@@ -16,7 +16,7 @@
 - Load module:
 
 ```bash
-sudo modprobe mac80211_hwsim
+sudo modprobe mac80211_hwsim radios=2 dyndbg=+p
 ```
 
 - Enable monitor mode:
@@ -36,7 +36,20 @@ sudo tcpdump -i wlan0
 - Start a access point with `hostapd` ([hostapd-guide](https://wiki.gentoo.org/wiki/Hostapd)):
 
 ```bash
-hostapd -B -f hostapd.log -i wlan0 hostapd.conf
+sudo hostapd -i wlan0 hostapd.conf -dd
+```
+
+- Test connect access point with (wpa_supplicant):
+
+```bash
+sudo wpa_supplicant -c wpa_supplicant.conf -i wlan1
+```
+
+- Monitor all wifi network:
+
+```bash
+sudo ifconfig hwsim0 up
+sudo tcpdump -i hwsim0 -v
 ```
 
 ### Using our virtual mac80211 kernel module (TODO)
