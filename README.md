@@ -33,7 +33,7 @@ sudo ifconfig wlan0 up
 sudo tcpdump -i wlan0
 ```
 
-- Start `hostapd` ([hostapd-guide](https://wiki.gentoo.org/wiki/Hostapd)):
+- Start a access point with `hostapd` ([hostapd-guide](https://wiki.gentoo.org/wiki/Hostapd)):
 
 ```bash
 hostapd -B -f hostapd.log -i wlan0 hostapd.conf
